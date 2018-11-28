@@ -1,0 +1,65 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Customer #<%= @customer.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/customers" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/customers/<%= @customer.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit customer
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_customer/<%= @customer.id %>" class="btn btn-block btn-outline-secondary">
+          Delete customer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Fname
+      </dt>
+      <dd>
+        <%= @customer.fname %>
+      </dd>
+
+      <dt>
+        Lname
+      </dt>
+      <dd>
+        <%= @customer.lname %>
+      </dd>
+
+      <dt>
+        Username
+      </dt>
+      <dd>
+        <%= @customer.username %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@customer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@customer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

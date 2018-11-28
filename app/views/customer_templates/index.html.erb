@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All customers
+    </h1>
+
+    <a href="/customers/new" class="btn btn-block btn-outline-secondary">
+      Add a new customer
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Fname
+        </th>
+
+        <th>
+          Lname
+        </th>
+
+        <th>
+          Username
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @customers.each do |customer| %>
+      <tr>
+        <td>
+          <%= customer.id %>
+        </td>
+
+        <td>
+          <%= customer.fname %>
+        </td>
+
+        <td>
+          <%= customer.lname %>
+        </td>
+
+        <td>
+          <%= customer.username %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(customer.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(customer.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/customers/<%= customer.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

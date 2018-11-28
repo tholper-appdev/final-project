@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181128002754) do
+ActiveRecord::Schema.define(version: 20181128204939) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,16 +51,26 @@ ActiveRecord::Schema.define(version: 20181128002754) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "publications", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "pubmed_id"
+    t.integer "customer_id"
+    t.date "pubmed_date"
+    t.string "pubmed_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "rtc_req_id"
+    t.integer "customer_id"
+    t.date "req_date"
+    t.string "req_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,8 +82,8 @@ ActiveRecord::Schema.define(version: 20181128002754) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "username"
-    t.string "fname"
-    t.string "lname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

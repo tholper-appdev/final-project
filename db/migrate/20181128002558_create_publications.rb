@@ -1,8 +1,10 @@
 class CreatePublications < ActiveRecord::Migration[5.1]
   def change
     create_table :publications do |t|
-      t.integer :user_id
-      t.integer :pubmed_id
+
+      t.integer :customer_id
+      t.date :pubmed_date 
+      t.string :pubmed_title
 
       t.timestamps
     end

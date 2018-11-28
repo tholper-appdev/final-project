@@ -15,9 +15,20 @@
             Resources
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if current_user != nil %>
             <a href="/users" class="dropdown-item">
               Users
             </a>
+            <a href="/customers" class="dropdown-item">
+              Customers
+            </a>
+            <a href="/requests" class="dropdown-item">
+              Requests
+            </a>  
+            <a href="/publications" class="dropdown-item">
+              Publications
+            </a>   
+            <% end %>
           </div>
         </li>
       </ul>

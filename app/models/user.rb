@@ -9,8 +9,8 @@
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
 #  username               :string
-#  fname                  :string
-#  lname                  :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 # Indexes
 #
@@ -21,8 +21,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :requests, :dependent => :destroy
-  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

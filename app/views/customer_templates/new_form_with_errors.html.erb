@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @customer.present? %>
+  <% if @customer.errors.any? %>
+    <% @customer.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new customer
+</h1>
+
+
+<hr>
+
+<form action="/create_customer" method="post">
+
+  <div class="form-group">
+    <label for="fname">
+      Fname
+    </label>
+
+    <input type="text" id="fname" name="fname" class="form-control" value="<%= @customer.fname %>">
+  </div>
+
+  <div class="form-group">
+    <label for="lname">
+      Lname
+    </label>
+
+    <input type="text" id="lname" name="lname" class="form-control" value="<%= @customer.lname %>">
+  </div>
+
+  <div class="form-group">
+    <label for="username">
+      Username
+    </label>
+
+    <input type="text" id="username" name="username" class="form-control" value="<%= @customer.username %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create customer
+  </button>
+</form>
+
+<hr>
+
+<a href="/customers">
+  Go back
+</a>
