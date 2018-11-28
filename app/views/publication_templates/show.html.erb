@@ -1,0 +1,58 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Publication #<%= @publication.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/publications" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/publications/<%= @publication.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit publication
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_publication/<%= @publication.id %>" class="btn btn-block btn-outline-secondary">
+          Delete publication
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @publication.user_id %>
+      </dd>
+
+      <dt>
+        Pubmed
+      </dt>
+      <dd>
+        <%= @publication.pubmed_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@publication.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@publication.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

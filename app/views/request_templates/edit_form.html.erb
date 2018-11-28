@@ -1,0 +1,34 @@
+<h1>
+  Edit request #<%= @request.id %>
+</h1>
+
+<hr>
+
+<form action="/update_request/<%= @request.id %>" method="post">
+
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @request.user_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="rtc_req_id">
+      Rtc req
+    </label>
+
+    <input type="text" id="rtc_req_id" name="rtc_req_id" class="form-control" value="<%= @request.rtc_req_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update request
+  </button>
+</form>
+
+<hr>
+
+<a href="/requests">
+  Go back
+</a>

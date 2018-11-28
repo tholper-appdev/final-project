@@ -1,0 +1,65 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Association #<%= @association.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/associations" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/associations/<%= @association.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit association
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_association/<%= @association.id %>" class="btn btn-block btn-outline-secondary">
+          Delete association
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Request
+      </dt>
+      <dd>
+        <%= @association.request_id %>
+      </dd>
+
+      <dt>
+        Publication
+      </dt>
+      <dd>
+        <%= @association.publication_id %>
+      </dd>
+
+      <dt>
+        Similar score
+      </dt>
+      <dd>
+        <%= @association.similar_score %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@association.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@association.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

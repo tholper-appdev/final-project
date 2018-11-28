@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All associations
+    </h1>
+
+    <a href="/associations/new" class="btn btn-block btn-outline-secondary">
+      Add a new association
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Request
+        </th>
+
+        <th>
+          Publication
+        </th>
+
+        <th>
+          Similar score
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @associations.each do |association| %>
+      <tr>
+        <td>
+          <%= association.id %>
+        </td>
+
+        <td>
+          <%= association.request_id %>
+        </td>
+
+        <td>
+          <%= association.publication_id %>
+        </td>
+
+        <td>
+          <%= association.similar_score %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(association.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(association.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/associations/<%= association.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

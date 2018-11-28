@@ -1,0 +1,58 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Request #<%= @request.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/requests" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/requests/<%= @request.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit request
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_request/<%= @request.id %>" class="btn btn-block btn-outline-secondary">
+          Delete request
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @request.user_id %>
+      </dd>
+
+      <dt>
+        Rtc req
+      </dt>
+      <dd>
+        <%= @request.rtc_req_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@request.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@request.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
