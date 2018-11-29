@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order(:lname,:fname)
 
     render("customer_templates/index.html.erb")
   end

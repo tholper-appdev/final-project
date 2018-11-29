@@ -1,44 +1,26 @@
 <div class="row mb-3">
-  <div class="col-md-12">
+  <div class="col-md-10">
     <h1>
-      All customers
+      All Customers
     </h1>
-
-    <a href="/customers/new" class="btn btn-block btn-outline-secondary">
-      Add a new customer
-    </a>
   </div>
 </div>
 
-
-<hr>
-
 <div class="row mb-3">
-  <div class="col-md-12">
+  <div class="col-md-10">
     <table class="table">
       <tr>
+
         <th>
-          ID
+          Last Name
         </th>
 
         <th>
-          Fname
-        </th>
-
-        <th>
-          Lname
+          First Name
         </th>
 
         <th>
           Username
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
         </th>
 
         <th>
@@ -47,8 +29,9 @@
 
       <% @customers.each do |customer| %>
       <tr>
+
         <td>
-          <%= customer.id %>
+          <%= customer.lname %>
         </td>
 
         <td>
@@ -56,18 +39,7 @@
         </td>
 
         <td>
-          <%= customer.lname %>
-        </td>
-
-        <td>
           <%= customer.username %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(customer.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(customer.updated_at) %> ago
         </td>
 
         <td>

@@ -26,17 +26,18 @@
 
     <dl>
       <dt>
-        User
+        Customer
       </dt>
       <dd>
-        <%= @request.user_id %>
+        <%= Customer.find_by(id: @request.customer_id).lname %>,
+        <%= Customer.find_by(id: @request.customer_id).fname %>
       </dd>
 
       <dt>
         Request Title
       </dt>
       <dd>
-        <%= @request.rtc_req_id %>
+        <%= @request.req_title %>
       </dd>
 
       <dt>
