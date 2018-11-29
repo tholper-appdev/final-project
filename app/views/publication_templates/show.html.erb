@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Publication #<%= @publication.id %> details
+      Publication #<%= @publication.id %> Details
     </h1>
 
     <div class="row mb-3">
@@ -11,17 +11,6 @@
         </a>
       </div>
 
-      <div class="col">
-        <a href="/publications/<%= @publication.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit publication
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="/delete_publication/<%= @publication.id %>" class="btn btn-block btn-outline-secondary">
-          Delete publication
-        </a>
-      </div>
     </div>
 
     <dl>
@@ -34,12 +23,33 @@
       </dd>
 
       <dt>
-        Pubmed
+        PubMED ID
       </dt>
       <dd>
         <%= @publication.id %>
       </dd>
 
+      <dt>
+        PubMED Date
+      </dt>
+      <dd>
+        <%= @publication.pubmed_date.strftime("%m/%d/%Y") %>
+      </dd>
+      
+      <dt>
+        PubMED title
+      </dt>
+      <dd>
+        <%= @publication.pubmed_title %>
+      </dd>
+
+      <dt>
+        PubMED Narrative
+      </dt>
+      <dd>
+        <%= @publication.pubmed_narrative %>
+      </dd>
+      
       <dt>
         Created at
       </dt>

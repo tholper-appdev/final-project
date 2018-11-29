@@ -1,17 +1,22 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Association #<%= @association.id %> details
+      NLP Match #<%= @association.id %> Details
     </h1>
 
     <div class="row mb-3">
       <div class="col">
-        <a href="/associations" class="btn btn-block btn-outline-secondary">
-          Go back
-        </a>
+      <form action="/update_association/<%= @association.id %>" method="post">
+        
+        Confirm? <%= check_box_tag :confirm , 1 , @association.confirm ? true : false %>
+        
+        <button class="btn btn-block btn-outline-secondary">
+        Update
+        </button>
+      </form>
       </div>
     </div>
-
+      
     <dl>
       <dt>
         Last Name
@@ -71,6 +76,12 @@
       </dd>
 
     </dl>
+        <div class="col">
+        <a href="/associations" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
   </div>
 </div>
+
 

@@ -32,7 +32,11 @@
         </th>
 
         <th>
-          Cosine Similarity score
+          Similarity Score
+        </th>
+
+        <th>
+          Confirm
         </th>
 
         <th>
@@ -67,6 +71,10 @@
           <%= association.similar_score %>
         </td>
 
+        <td>
+          <%= association.confirm %>
+        </td>
+        
         <td>
           <a href="/associations/<%= association.id %>">
             Show details

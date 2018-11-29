@@ -13,4 +13,5 @@
 
 class Publication < ApplicationRecord
     has_many :associations, :dependent => :destroy
+    belongs_to :customer, :class_name => "Customer", :foreign_key => "customer_id"
 end

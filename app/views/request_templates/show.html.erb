@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Request #<%= @request.id %> details
+      Request #<%= @request.id %> Details
     </h1>
 
     <div class="row mb-3">
@@ -11,17 +11,6 @@
         </a>
       </div>
 
-      <div class="col">
-        <a href="/requests/<%= @request.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit request
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="/delete_request/<%= @request.id %>" class="btn btn-block btn-outline-secondary">
-          Delete request
-        </a>
-      </div>
     </div>
 
     <dl>
@@ -39,7 +28,15 @@
       <dd>
         <%= @request.req_title %>
       </dd>
-
+      
+      <dt>
+        Request Date
+      </dt>
+      <dd>
+          <% if @request.req_date != nil %>
+            <%= @request.req_date.strftime("%m/%d/%Y") %>
+          <% end %>
+      </dd>      
       <dt>
         Created at
       </dt>

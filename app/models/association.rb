@@ -8,6 +8,7 @@
 #  similar_score  :float
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  confirm        :boolean          default(FALSE)
 #
 
 class Association < ApplicationRecord

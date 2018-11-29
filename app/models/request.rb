@@ -11,6 +11,6 @@
 #
 
 class Request < ApplicationRecord
-    belongs_to :customer
+    belongs_to :customer, :class_name => "Customer", :foreign_key => "customer_id"
     has_many :associations, :dependent => :destroy
 end

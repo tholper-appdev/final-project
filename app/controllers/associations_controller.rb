@@ -44,14 +44,16 @@ class AssociationsController < ApplicationController
   def update_row
     @association = Association.find(params.fetch("id_to_modify"))
 
-    @association.request_id = params.fetch("request_id")
-    @association.publication_id = params.fetch("publication_id")
-    @association.similar_score = params.fetch("similar_score")
+    if params[:confirm].blank?
+      @association.confirm = false
+    else
+      @association.confirm = true
+    end
 
     if @association.valid?
       @association.save
 
-      redirect_to("/associations/#{@association.id}", :notice => "Association updated successfully.")
+      redirect_to("/associations", :notice => "Association updated successfully.")
     else
       render("association_templates/edit_form_with_errors.html.erb")
     end
