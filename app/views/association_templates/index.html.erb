@@ -12,11 +12,23 @@
     <table class="table">
       <tr>
         <th>
-          Request
+          Last Name
         </th>
 
         <th>
-          Publication
+          First Name
+        </th>
+        
+        <th>
+          Request ID
+        </th>
+
+        <th>
+          Request Date
+        </th>
+        
+        <th>
+          PubMED ID
         </th>
 
         <th>
@@ -27,12 +39,26 @@
         </th>
       </tr>
 
-      <% @associations.each do |association| %>
+      <% @associations.each do |association|  %>
       <tr>
+        <td>
+        <%= association.lname %>
+        </td>
+
+        <td>
+          <%= association.fname %>
+        </td>
+        
         <td>
           <%= association.request_id %>
         </td>
-
+        
+        <td>
+          <% if association.req_date != nil %>
+          <%= association.req_date.to_date.strftime("%m/%d/%Y") %>
+          <% end %>
+        </td>
+        
         <td>
           <%= association.publication_id %>
         </td>

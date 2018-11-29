@@ -1,12 +1,14 @@
 class AssociationsController < ApplicationController
   def index
-    @associations = Association.all
+    #@associations = Association.all
+    @associations = Association.joins("join requests on associations.request_id = requests.id join customers on requests.customer_id = customers.id order by customers.lname, customers.fname, requests.req_date").select("associations.*,customers.fname,customers.lname,requests.req_date")
+
 
     render("association_templates/index.html.erb")
   end
 
   def show
-    @association = Association.find(params.fetch("id_to_display"))
+    @association = Association.joins("join requests on associations.request_id = requests.id join customers on requests.customer_id = customers.id join publications on associations.publication_id = publications.id").select("associations.*,customers.fname,customers.lname,requests.req_date,requests.req_title,publications.pubmed_title,publications.pubmed_narrative").find(params.fetch("id_to_display"))
 
     render("association_templates/show.html.erb")
   end

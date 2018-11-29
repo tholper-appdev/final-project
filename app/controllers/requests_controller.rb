@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   def index
-    @requests = Request.all
+    @requests = Request.joins("join customers on requests.customer_id = customers.id order by customers.lname, customers.fname, requests.req_date").all
 
     render("request_templates/index.html.erb")
   end

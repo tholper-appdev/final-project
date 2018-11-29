@@ -61,6 +61,7 @@ namespace :slurp do
         p.customer_id = Customer.find_by(username: row["username"]).id
         p.pubmed_date = row["pubmed_date"]
         p.pubmed_title= row["pubmed_title"]
+        p.pubmed_narrative = row["pubmed_narrative"]
         p.save
       end
     end

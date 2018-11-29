@@ -10,55 +10,66 @@
           Go back
         </a>
       </div>
-
-      <div class="col">
-        <a href="/associations/<%= @association.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit association
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="/delete_association/<%= @association.id %>" class="btn btn-block btn-outline-secondary">
-          Delete association
-        </a>
-      </div>
     </div>
 
     <dl>
       <dt>
-        Request
+        Last Name
+      </dt>
+      <dd>
+       <%= @association.lname %>
+      </dd>
+      <dt>
+        First Name
+      </dt>
+      <dd>
+        <%= @association.fname %>
+      </dd>
+      <dt>
+        Request ID
       </dt>
       <dd>
         <%= @association.request_id %>
       </dd>
-
       <dt>
-        Publication
+        Request Date
+      </dt>
+      <dd>
+          <% if @association.req_date != nil %>
+          <%= @association.req_date.to_date.strftime("%m/%d/%Y") %>
+          <% end %>
+      </dd>
+      <dt>
+        Request Title
+      </dt>
+      <dd>
+        <%= @association.req_title %>
+      </dd>
+      <dt>
+        PubMED ID
       </dt>
       <dd>
         <%= @association.publication_id %>
       </dd>
-
       <dt>
-        Similar score
+        PubMED Title
+      </dt>
+      <dd>
+        <%= @association.pubmed_title %>
+      </dd>
+      <dt>
+        PubMED Narrative
+      </dt>
+      <dd>
+        <%= @association.pubmed_narrative %>
+      </dd>
+      <dt>
+        Similarity score
       </dt>
       <dd>
         <%= @association.similar_score %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@association.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@association.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
