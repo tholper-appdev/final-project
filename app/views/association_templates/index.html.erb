@@ -9,7 +9,7 @@
 
 <div class="row mb-3">
   <div class="col-md-10">
-    <table class="table">
+    <table class="table table-bordered">
       <tr>
         <th>
           Last Name
@@ -30,13 +30,17 @@
         <th>
           PubMED ID
         </th>
-
+        
+        <th>
+          PubMED Date
+        </th>
+        
         <th>
           Similarity Score
         </th>
 
         <th>
-          Confirm
+          Request/PubMED Association
         </th>
 
         <th>
@@ -68,6 +72,12 @@
         </td>
 
         <td>
+          <% if association.pubmed_date != nil %>
+          <%= association.pubmed_date.to_date.strftime("%m/%d/%Y") %>
+          <% end %>
+        </td>
+
+        <td>
           <%= association.similar_score %>
         </td>
 
@@ -76,7 +86,7 @@
         </td>
         
         <td>
-          <a href="/associations/<%= association.id %>">
+          <a href="/associations/<%= association.id %>" class="btn btn-sm btn-link">
             Show details
           </a>
         </td>

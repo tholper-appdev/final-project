@@ -23,6 +23,7 @@ class CustomersController < ApplicationController
     @customer.fname = params.fetch("fname")
     @customer.lname = params.fetch("lname")
     @customer.username = params.fetch("username")
+    @customer.email = params.fetch("email")
 
     if @customer.valid?
       @customer.save
@@ -45,7 +46,8 @@ class CustomersController < ApplicationController
     @customer.fname = params.fetch("fname")
     @customer.lname = params.fetch("lname")
     @customer.username = params.fetch("username")
-
+    @customer.email = params.fetch("email")
+ 
     if @customer.valid?
       @customer.save
 
