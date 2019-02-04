@@ -61,7 +61,7 @@ namespace :slurp do
         p.customer_id = Customer.find_by(username: row["username"]).id
         p.pubmed_date = row["pubmed_date"]
         p.pubmed_title= row["pubmed_title"]
-        p.pubmed_narrative = row["pubmed_narrative"]
+        p.pubmed_narrative = row["narrative"]
         p.save
       end
     end
@@ -72,7 +72,7 @@ namespace :slurp do
    
   task requests: :environment do
     Request.delete_all
-    
+
     csv_text = File.read(Rails.root.join("lib", "csvs", "requests.csv"))
     csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
 
